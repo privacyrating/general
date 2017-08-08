@@ -276,9 +276,9 @@ DELIMITER ;
         \item features: 1500
     \end{itemize}
 
-    \(\Rightarrow\) 42 Cluster\\
-    \(\Rightarrow\) Mehr als 50\% Rauschen\\
-    \(\Rightarrow\) 1 Cluster viel zu groß
+    \textcolor{green}{\(\Rightarrow\)} 42 Cluster\\
+    \textcolor{red}{\(\Rightarrow\)} Mehr als 50\% Rauschen\\
+    \textcolor{red}{\(\Rightarrow\)} 1 Cluster viel zu groß
 
 \end{frame}
 
@@ -287,22 +287,22 @@ DELIMITER ;
     \begin{itemize}
         \item K-Means
             \begin{itemize}
-                \item Anzahl Cluster aus DBSCAN \(\rightarrow\) mäßiger Erfolg
-                \item Anzahl GP Kategorien \(\rightarrow\) mäßiger Erfolg
+                \item Anzahl Cluster aus DBSCAN \(\rightarrow\) \textcolor{orange}{mäßiger} Erfolg
+                \item Anzahl GP Kategorien \(\rightarrow\) \textcolor{orange}{mäßiger} Erfolg
             \end{itemize}
         \item Classifier
             \begin{itemize}
-                \item DecisionTree \(\rightarrow\) mieserabler Erfolg
-                \item BernoulliNB \(\rightarrow\) mieserabler Erfolg
-                \item MLP \(\rightarrow\) mieserabler Erfolg
-                \item AdaBoost \(\rightarrow\) mieserabler Erfolg
-                \item KNeighbors  \(\rightarrow\) akzeptabler Erfolg
+                \item DecisionTree \(\rightarrow\) \textcolor{red}{mieserabler} Erfolg
+                \item BernoulliNB \(\rightarrow\) \textcolor{red}{mieserabler} Erfolg
+                \item MLP \(\rightarrow\) \textcolor{red}{mieserabler} Erfolg
+                \item AdaBoost \(\rightarrow\) \textcolor{red}{mieserabler} Erfolg
+                \item KNeighbors  \(\rightarrow\) \textcolor{green}{akzeptabler} Erfolg
             \end{itemize}
     \end{itemize}
 
-    \(\Rightarrow\) Kein Verlust mehr durch Rauschen\\
-    \(\Rightarrow\) Zu großer Cluster wurde noch größer\\
-    \(\Rightarrow\) Beinhaltet mehr als 50\% apps
+    \textcolor{green}{\(\Rightarrow\)} Kein Verlust mehr durch Rauschen\\
+    \textcolor{red}{\(\Rightarrow\)} Zu großer Cluster wurde noch größer\\
+    \textcolor{red}{\(\Rightarrow\)} Cluster beinhaltet mehr als 50\% apps
 
 \end{frame}
 
@@ -310,7 +310,7 @@ DELIMITER ;
 
     Aufteilung von zu großen Cluster in kleinere.
 
-    \(\Rightarrow\) Sprengt den Arbeitsspeicher.
+    \textcolor{red}{\(\Rightarrow\)} Sprengt den Arbeitsspeicher.
     \begin{quote}
         Dies liegt an der mieserablen Implementierung in SKLearn.
         Es ist besser, wenn du's selbst implementierst.\\
@@ -323,7 +323,7 @@ DELIMITER ;
         \item Dabei entstandendes Rauschen wird mithilfe KNeighbors neu verteilt
     \end{itemize}
 
-    \(\Rightarrow\) Clusterqualität wurde schlechter, kein guter Erfolg
+    \textcolor{red}{\(\Rightarrow\)} Clusterqualität wurde schlechter, kein guter Erfolg
 
 \end{frame}
 
