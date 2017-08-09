@@ -1,5 +1,5 @@
 ####
-# Autor: Robert Eichler
+# Author: Robert Eichler
 ####
 
 # Combinding clusters from dbscan with classifier

@@ -1,5 +1,5 @@
 ####
-# Autor: Robert Eichler
+# Author: Robert Eichler
 ####
 
 # KAMA = Kombiniere alles mit allen

@@ -1,3 +1,6 @@
+####
+# Author: Robert Eichler
+####
 
 import mysql.connector as mariadb
 

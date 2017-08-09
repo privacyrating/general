@@ -1,5 +1,5 @@
 ####
-# Autor: Robert Eichler
+# Author: Robert Eichler
 ####
 
 from __future__ import print_function
