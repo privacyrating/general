@@ -1,3 +1,7 @@
+----
+-- Author: Robert Eichler
+----
+
 insert into Permissions (Permission_id, name) values
     (0, 'In-App-Käufe'),
     (1, 'Geräte- & App-Verlauf'),

@@ -1,3 +1,7 @@
+----
+-- Author: Robert Eichler
+----
+
 UPDATE Permissions SET weight=0.100000 WHERE Permission_id=0;
 UPDATE Permissions SET weight=0.700000 WHERE Permission_id=1;
 UPDATE Permissions SET weight=0.200000 WHERE Permission_id=2;

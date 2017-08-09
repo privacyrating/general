@@ -1,3 +1,7 @@
+----
+-- Author: Robert Eichler
+----
+
 -- Creating the database
 CREATE DATABASE IF NOT EXISTS privacy_ranking
     DEFAULT CHARACTER SET utf8

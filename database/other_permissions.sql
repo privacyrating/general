@@ -1,3 +1,7 @@
+----
+-- Author: Robert Eichler
+----
+
 insert into Permissions (Permission_id, name) values
     (1000, 'Simulierte Standortquellen für Testzwecke'),
     (1001, 'Netzwerkverbindungen abrufen'),
