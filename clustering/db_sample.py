@@ -78,7 +78,7 @@ dataset :: array
     Containing app data
 
 app_ids :: array
-    Containing the ids from dataset
+    Containing the IDs from dataset
 
 X :: array-like or sparse matrix, shape=(n_samples, n_features)
     Training instances to cluster

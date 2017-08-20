@@ -7,7 +7,7 @@ import mysql.connector as mariadb
 clustering_id = 0
 
 """
-Sets clustering id for future cluster insertions
+Sets clustering ID for future cluster insertions
 
 Parameters
 ----------
@@ -43,7 +43,7 @@ def connect_getter():
     return mariadb.connect(user='getter', password='total_safety', database='privacy_ranking')
 
 """
-Removes all clusters with previous setted clustering id
+Removes all clusters with previous setted clustering ID
 """
 def remove_clusters():
     print("removing %d" % clustering_id)
@@ -56,7 +56,7 @@ def remove_clusters():
     mariadb_connection.close()
 
 """
-Inserts given clusters with previous setted clustering id into database
+Inserts given clusters with previous setted clustering ID into database
 
 Parameters
 ----------
@@ -78,7 +78,7 @@ def add_clusters(cluster_ids):
     mariadb_connection.close()
 
 """
-Inserts apps into cluster with previous setted clustering id into database
+Inserts apps into cluster with previous setted clustering ID into database
 
 Parameters
 ----------

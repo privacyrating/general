@@ -37,7 +37,7 @@ assigned :: array-like or sparse matrix, shape=(n_samples, n_features)
     Assigned apps
 
 assigned_ids :: array
-    List of assigned app ids
+    List of assigned app IDs
 
 assigned_clusters :: array
     List of assigned labels of assigned apps
@@ -47,7 +47,7 @@ na_X :: array-like or sparse matrix, shape=(n_samples, n_features)
     Not assigned apps
 
 na_app_ids :: array
-    List of not assigned app ids
+    List of not assigned app IDs
 
 """
 def run_classifier(assigned, assigned_ids, assigned_clusters, na_X, na_app_ids):
@@ -108,7 +108,7 @@ dataset :: array
     Containing app data
 
 app_ids :: array
-    Containing the ids from dataset
+    Containing the IDs from dataset
 
 X :: array-like or sparse matrix, shape=(n_samples, n_features)
     Training instances to cluster
@@ -130,10 +130,10 @@ Returns
     :: (array-like or sparse matrix, array, array, array-like or sparse matrix, array)
 
 assigned: features of assigned apps
-assigned_ids: ids of assigned apps
-assigned_clusters: id of cluster for every assigned app
+assigned_ids: IDs of assigned apps
+assigned_clusters: ID of cluster for every assigned app
 na_X: features of not assigned apps
-na_app_ids: ids of not assigned apps
+na_app_ids: IDs of not assigned apps
 
 """
 def run_dbscan(dataset, app_ids, X, eps=0.5, min_samples=5, metric='euclidean', algorithm='auto'):
