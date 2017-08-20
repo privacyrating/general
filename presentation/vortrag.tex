@@ -134,27 +134,6 @@ def extract_rating(data):
 
 \end{frame}
 
-\begin{frame}[fragile]{Stored procedure}
-
-    \begin{lstlisting}[language=SQL]
-DELIMITER $$
-DROP FUNCTION IF EXISTS countAppsInCluster$$
-CREATE FUNCTION countAppsInCluster( c_id INT, cing_id INT )
-RETURNS INT DETERMINISTIC
-READS SQL DATA
-BEGIN
-    DECLARE cnt INT;
-    SELECT count(App_id) INTO cnt FROM App_in_cluster WHERE cluster_id = c_id
-        AND Clustering_id = cing_id;
-    RETURN cnt;
-END$$
-DELIMITER ;
-    \end{lstlisting}
-
-    \textcolor{red}{\(\Rightarrow\)} Schlechte Idee, imperformant!
-
-\end{frame}
-
 \section{Kategorisierung und Bewertung der Apps}
 
 \begin{frame}{Datamining}
