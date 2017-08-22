@@ -25,7 +25,7 @@
 \title{Privacy Ranking}
 \subtitle{Wahlprojekt SS 2017}
 \date{Letztes Update: \today}
-\author{Max Mustermann}
+%\author{Max Mustermann}
 \institute{Studienbereich Informatik\\Hochschule {RheinMain}}
 
 \lstset{
@@ -62,23 +62,28 @@
 \begin{frame}{Einleitung}
 
     \begin{itemize}
-        \item Ziel des Projekts?
+        \item Anforderungen an das Projekt
         \item Architektur (App - Web - Datenbank)
         \item Live-Demo der App
     \end{itemize}
 
 \end{frame}
 
-\begin{frame}{Ziel des Projekts?}
+\begin{frame}{Anforderungen an das Projekt}
 
     \begin{itemize}
-        \item Scraper
-        \item Database
-        \item Clustering
-        \item Scoring
-        \item Webservice
-        \item App Erstellung
+        \item Kategorisierung und Bewertung der Berechtigungen
+        \item Erstellung einer Applikation zur Darstellung der Ergebnisse
     \end{itemize}
+
+%    \begin{itemize}
+%        \item Scraper
+%        \item Database
+%        \item Clustering
+%        \item Scoring
+%        \item Webservice
+%        \item App Erstellung
+%    \end{itemize}
 
 \end{frame}
 
@@ -94,18 +99,18 @@
 
 \end{frame}
 
-\section{App Beispielcode}
+\section{Die Anwendung}
 
-\begin{frame}[fragile]{Wie wurde App erstellt}
+\begin{frame}[fragile]{Wie wurde die App erstellt}
 
-	\begin{columns}
-        \column{.5\textwidth}        
-        \begin{itemize} 
-        	\item Android Studio ist eine freie Integrierte Entwicklungsumgebung (IDE) 
-        	\item von Google entwikelt
-			\item offizielle Entwicklungsumgebung für Android
-    	\end{itemize}
-        
+    \begin{columns}
+        \column{.5\textwidth}
+        \begin{itemize}
+            \item Android Studio ist eine freie Integrierte Entwicklungsumgebung (IDE)
+            \item von Google entwickelt
+            \item offizielle Entwicklungsumgebung für Android
+        \end{itemize}
+
         \column{.5\textwidth}
         \centering
         \\
@@ -119,20 +124,20 @@
 
 
     \begin{itemize}
-        \item bla 
         \item bla
-		\item bla
+        \item bla
+        \item bla
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{App Beispiel}
 
-	Die Daten werden von Server mit Hilfe der JSON geholen
+    Die Daten werden von Server mit Hilfe der JSON geholen
 
     \begin{center}
         \includegraphics[width=1.0\textwidth]{img/json_bs.png}
-        
+
     \end{center}
 
 \end{frame}
@@ -752,52 +757,18 @@ value = (value * (color_range[1] - color_range[0]) / 100) + color_range[0]
 \end{frame}
 \begin{frame}{Projektmanagement}
 
-    \textbf{Kommunikation und Dokumentation}
+    \textbf{Meilensteine}
      \begin{itemize}
-          \item Telegramm (Kommunikation)
-          \item Slack(Jibble) (Zeiterfassung der Arbeitszeit)
-          \item Wiki (Dokumentation des Projektes)
-          \item Github (Repository mit all unseren Daten )
+          \item 10.05.2017 Vorstellung Grob-Entwurf und Einigung auf Projektziel
+          \item 24.05.2017 Grundgerüst der App ist fertig
+          \item 21.06.2017 Erste funktionierende Version fertig
+          \item 25.08.2017 App ist final und voll funktionsfähig
     \end{itemize}
 
 \end{frame}
 \begin{frame}{Projektmanagement}
 
     \textbf{Meilensteine}
-     \begin{itemize}
-          \item 24.05.2017 Grob-Entwurf unserer App vorstellen
-          \item 21.06.2017 App sollte lauffähig sein und mit dem Server funktionieren
-          \item App ist final und voll funktionsfähig
-    \end{itemize}
-
-\end{frame}
-\begin{frame}{Projektmanagement}
-
-    \textbf{Probleme im Projekt}
-     \begin{itemize}
-          \item Mussten anfangs mit Dummy Daten arbeiten
-          \item Daten und Webservice standen am Anfang noch nicht zur Verfügung
-          \item Clustering war noch nicht optimiert und hat zu große Cluster generiert
-          \item Algorithmus musste angepasst werden
-          \item Cluster wurden verkleinert, leider mit Qualitätseinbußen
-    \end{itemize}
-
-\end{frame}
-\begin{frame}{Projektmanagement}
-
-    \textbf{Vergleich urpsrung Anforderung mit Ergebnis}
-     \begin{itemize}
-          \item tetststts
-          \item testtt
-          \item testtt
-          \item testttt
-          \item xxxxxx
-    \end{itemize}
-
-\end{frame}
-\begin{frame}{Projektmanagement}
-
-    \textbf{Werdegang der App}
 
     \begin{columns}[t]
         \column{.5\textwidth}
@@ -811,7 +782,7 @@ value = (value * (color_range[1] - color_range[0]) / 100) + color_range[0]
 \end{frame}
 \begin{frame}{Projektmanagement}
 
-    \textbf{Werdegang der App}
+    \textbf{Meilensteine}
 
     \begin{columns}[t]
         \column{.5\textwidth}
@@ -822,6 +793,61 @@ value = (value * (color_range[1] - color_range[0]) / 100) + color_range[0]
         \includegraphics[width=0.8\textwidth]{img/4.png}
     \end{columns}
 
+\end{frame}
+\begin{frame}{Projektmanagement}
+
+    \textbf{Kommunikation und Dokumentation}
+     \begin{itemize}
+          \item Telegramm (Kommunikation)
+          \item Slack(Jibble) (Zeiterfassung der Arbeitszeit)
+          \item Wiki (Dokumentation des Projektes)
+          \item Github (Repository mit all unseren Daten )
+    \end{itemize}
+
+\end{frame}
+\begin{frame}{Fazit}
+
+    \textbf{Probleme im Projekt}
+     \begin{itemize}
+          \item Mussten anfangs mit Dummy Daten arbeiten
+          \item Daten und Webservice standen am Anfang noch nicht zur Verfügung
+          \item Clustering war noch nicht optimiert und hat zu große Cluster generiert
+          \item Clustering- und Scoring-Algorithmus musste angepasst werden
+          \item Cluster wurden verkleinert, leider mit Qualitätseinbußen
+    \end{itemize}
+
+\end{frame}
+\begin{frame}{Fazit}
+
+    \textbf{Haben wir das Projekt erfolgreich umgesetzt?}
+     \begin{itemize}
+          \item Daten abgerufen \(\surd\)
+          \item Daten gespeichert \(\surd\)
+          \item Daten geclustert \(\surd\)
+          \item Daten bewertet \(\surd\)
+          \item Verbindungsmöglichkeit von App zu Daten \(\surd\){}
+          \item Nutzbares Endprodukt \(\surd\)
+    \end{itemize}
+
+\end{frame}
+\begin{frame}{Fazit}
+    \textbf{Was hätten wir besser machen können?}
+    \begin{itemize}
+        \item App-Design
+        \item Performance von der App
+        \item Leicht um neue Datensätze erweiterbar
+        \item Nicht nur auf GooglePlay Store beschränkt (Bspw. F-Droid)
+    \end{itemize}
+\end{frame}
+\begin{frame}{Ende}
+
+    \Huge
+    {Fragen?}
+
+    \normalsize
+    Link zur App:
+    \center
+    \includegraphics[width=0.3\textwidth]{img/qrcode.png}
 \end{frame}
 
 \end{document}
