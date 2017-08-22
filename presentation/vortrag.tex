@@ -120,7 +120,7 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Wie wurde App erstellt}
+\begin{frame}[fragile]{Wie wurde die App erstellt}
 
 
     \begin{itemize}
@@ -133,7 +133,7 @@
 
 \begin{frame}[fragile]{App Beispiel}
 
-    Die Daten werden von Server mit Hilfe der JSON geholen
+    Die Daten werden vom Server mit Hilfe der JSON geholt
 
     \begin{center}
         \includegraphics[width=1.0\textwidth]{img/json_bs.png}
@@ -257,7 +257,7 @@ $app->get('/perm/[{id}]', function ($request, $response, $args) {
             \item nginx leitet an Slim weiter
             \item Slim ruft get('/perm/[{id}]'... auf
             \item DB Anfrage wird vorbereitet und ausgeführt
-            \item ergebniss wird als JSON gepackt zurückgegeben
+            \item Ergebnis wird als JSON gepackt zurückgegeben
         \end{itemize}
     \end{center}
 
@@ -506,13 +506,13 @@ def extract_rating(data):
 
     \textcolor{green}{\(\Rightarrow\)} Kein Verlust mehr durch Rauschen\\
     \textcolor{red}{\(\Rightarrow\)} Zu großer Cluster wurde noch größer\\
-    \textcolor{red}{\(\Rightarrow\)} Cluster beinhaltet mehr als 50\% apps
+    \textcolor{red}{\(\Rightarrow\)} Cluster beinhaltet mehr als 50\% Apps
 
 \end{frame}
 
 \begin{frame}{Hierarchical DBSCAN}
 
-    Aufteilung von zu großen Cluster in kleinere.
+    Aufteilung von zu großen Clustern in kleinere.
 
     \textcolor{red}{\(\Rightarrow\)} Sprengt den Arbeitsspeicher.
     \begin{quote}
@@ -576,7 +576,7 @@ def extract_rating(data):
 
     Besteht aus zwei Teilen:
     \begin{itemize}
-        \item Relative häufigkeit von App die diese Berechtigung \textbf{nicht} haben
+        \item Relative Häufigkeit von Apps die diese Berechtigung \textbf{nicht} haben
     \end{itemize}
 
     \begin{center}
@@ -589,7 +589,7 @@ def extract_rating(data):
     \end{center}
 
     \begin{itemize}
-        \item Bösheit der Berechtigung
+        \item Bosheit der Berechtigungen
     \end{itemize}
 
     \begin{center}
@@ -741,11 +741,11 @@ value = (value * (color_range[1] - color_range[0]) / 100) + color_range[0]
 
     \textbf{Aufteilung der Arbeit}
      \begin{itemize}
-          \item Projektleiter George
-          \item Tech-Support Rodion
-          \item George, Viktor und Rodion waren für die App zuständig
-          \item Simon war für den Webservice zuständig
-          \item Robert hat das Data-Mining, GoogleScraper, Scoring und die Datenbank aufgebaut
+          \item Projektleiter: George
+          \item Tech-Support: Rodion
+          \item App-Erstellung: George, Viktor und Rodion
+          \item Webservice: Simon
+          \item Data-Mining, GoogleScraper, Scoring, Datenbank: Robert
      \end{itemize}
     \textbf{Zeitmanagement}
         \begin{itemize}
@@ -760,8 +760,8 @@ value = (value * (color_range[1] - color_range[0]) / 100) + color_range[0]
     \textbf{Meilensteine}
      \begin{itemize}
           \item 10.05.2017 Vorstellung Grob-Entwurf und Einigung auf Projektziel
-          \item 24.05.2017 Grundgerüst der App ist fertig
-          \item 21.06.2017 Erste funktionierende Version fertig
+          \item 24.05.2017 Grundgerüst der App
+          \item 21.06.2017 Erste funktionierende Version
           \item 25.08.2017 App ist final und voll funktionsfähig
     \end{itemize}
 
