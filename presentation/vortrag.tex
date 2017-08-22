@@ -80,10 +80,158 @@
 
 \section{Webservice}
 
-\begin{frame}
-    Webservice
+\begin{frame}{Webservice}
+
+    \begin{center}
+        \begin{itemize}
+            \item Was ist ein Webservice?
+            \item Warum wird er in diesem Projekt benötigt?
+            \item Representational State Transfer (REST)
+        \end{itemize}
+    \end{center}
+
 \end{frame}
 
+\begin {frame}{Slim Framework}
+
+    \begin{center}
+        \begin{itemize}
+            \item Was ist Slim?
+            \item Warum nicht \"from scratch\" selbst coden?
+            \item Hat das auch Nachteile?
+        \end{itemize}
+    \end{center}
+
+\end{frame}
+
+\begin {frame}[fragile]{Datenbankverbindung}
+
+    \begin{center}
+        \begin{lstlisting}
+$config['db']['host']   = "localhost";
+$config['db']['user']   = "XXXXXXXXXXXXX";
+$config['db']['pass']   = "XXXXXXXXXXXXX";
+$config['db']['dbname'] = "privacy_ranking";
+
+$app = new \Slim\App(["settings" => $config]);
+$container = $app->getContainer();
+        \end{lstlisting}
+    \end{center}
+
+\end{frame}
+
+\begin {frame}[fragile]{Datenbankverbindung}
+
+    \begin{center}
+        \begin{lstlisting}
+$container['db'] = function ($c) {
+    $db = $c['settings']['db'];
+    $pdo = new PDO("mysql:host=" . $db['host'] . ";dbname=" . $db['dbname'].";charset=utf8",
+        $db['user'], $db['pass']);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(
+    PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    return $pdo;
+};
+
+        \end{lstlisting}
+    \end{center}
+
+\end{frame}
+
+\begin {frame}[fragile]{Beispiel Anfrage}
+
+    \begin{center}
+        \begin{lstlisting}
+
+$app->get('/perm/[{id}]', function ($request, $response, $args) {
+
+    try
+    {
+
+        $sth = $this->db->prepare("SELECT name, Permission_id, weight  FROM Apps NATURAL JOIN App_permissions NATURAL JOIN Permissions  WHERE App_id=:id");
+
+        $sth->bindParam("id",$args['id']);
+
+        $sth->execute();
+
+        \end{lstlisting}
+    \end{center}
+
+\end{frame}
+
+\begin {frame}[fragile]{Beispiel Anfrage}
+
+    \begin{center}
+        \begin{lstlisting}
+        $category = $sth->fetchAll();
+
+        if($category) {
+            return $this->response->withJson(
+            $category, 200);
+
+        } else {
+            throw new PDOException('"No Permissions needed."');
+        }
+
+    } catch(PDOException $e) {
+          echo '[{"name":'. $e->getMessage() .'}]';
+    }
+});
+        \end{lstlisting}
+    \end{center}
+
+\end{frame}
+
+\begin {frame}{Beispiel Anfrage}
+
+    \begin{center}
+         \begin{itemize}
+            \item Anfrage an http://privacyranking.cs.hs-rm.de/perm/com.tinder wird gestellt.
+            \item nginx leitet an Slim weiter
+            \item Slim ruft get('/perm/[{id}]'... auf
+            \item DB Anfrage wird vorbereitet und ausgeführt
+            \item ergebniss wird als JSON gepackt zurückgegeben
+        \end{itemize}
+    \end{center}
+
+\end{frame}
+
+\begin {frame}[fragile]{Beispiel Anfrage Antwort}
+
+    \begin{center}
+            \begin{lstlisting}
+[{"name":"In-App-K\u00e4ufe","Permission_id":"0",
+"weight":"0.1"},
+{"name":"Ger\u00e4te- & App-Verlauf","Permission_id":"1",
+"weight":"0.7"},
+{"name":"Standord","Permission_id":"6",
+"weight":"1"},
+{"name":"Telefon","Permission_id":"8",
+"weight":"0.7"},
+(...)]
+            \end{lstlisting}
+    \end{center}
+
+\end{frame}
+
+\begin {frame}{Swagger}
+
+    \begin{center}
+         "The OpenAPI Specification (OAS)[formerly known as the Swagger Specification] defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined, a consumer can understand and interact with the remote service with a minimal amount of implementation logic."
+
+    \end{center}
+
+\end{frame}
+
+\begin {frame}{Swagger}
+
+    \begin{center}
+         swagger bilder hinzufügen TODO
+
+    \end{center}
+
+\end{frame}
 \section{Datenbeschaffung und Verarbeitung}
 
 \begin{frame}{Website Google Playstore}
@@ -527,7 +675,3 @@ red 0 degree - 29 degree
 yellow 30 degree - 79 degree
 green 80 degree - 120 degree
 """
-
-
-
-
