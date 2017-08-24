@@ -110,20 +110,33 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Wie wurde die App erstellt}
+\begin{frame}[fragile]{Vorgehensweise}
 
 
     \begin{itemize}
-        \item bla
-        \item bla
-        \item bla
+        \item Daten abfragen
+        \item Daten verwalten
+        \item Daten darstellen 
     \end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]{App Beispiel}
+\begin{frame}[fragile]{Daten abfragen}
+
+	\begin{center}
+    	\includegraphics[width=1.0\textwidth]{img/json.png}
+	 \end{center}
+    
+\end{frame}
+
+\begin{frame}[fragile]{Daten abfragen}
 
     Die Daten werden vom Server mit Hilfe der JSON geholt
+    \begin{lstlisting}
+    {"App_id":"belerion.com.torchlight",
+    "title":"Taschenlampe (alt)",
+    "title_en":"Flashlight old)", ...}
+    \end{lstlisting}
 
     \begin{center}
         \includegraphics[width=1.0\textwidth]{img/json_bs.png}
@@ -131,6 +144,41 @@
     \end{center}
 
 \end{frame}
+
+\begin{frame}[fragile]{Daten verwalten}
+
+    \begin{columns}
+        \begin{column}{0.50\textwidth}\\
+              \includegraphics[width=1.0\textwidth]{img/Daten_klass.png}
+        \end{column}
+        \begin{column}{0.50\textwidth}\\
+            \includegraphics[width=1.0\textwidth]{img/Daten_speichern.png}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}[fragile]{Daten darstellen - XML Teil}
+    
+    \includegraphics[width=1.0\textwidth]{img/xml_1.png}        
+
+\end{frame}
+
+\begin{frame}[fragile]{Daten darstellen}
+     
+    \includegraphics[width=0.7\textwidth]{img/xml_2.png}\\
+    \includegraphics[width=1.0\textwidth]{img/adapter.png}    
+
+\end{frame}
+
+\begin{frame}[fragile]{Ergebnis}
+     
+    \begin{center}
+        \includegraphics[width=.45\textwidth]{img/handy.png}
+    \end{center}   
+
+\end{frame}
+
 
 
 
