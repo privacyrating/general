@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">privacy ranking</string>
+    <string name="title_categorie">categorie</string>
+    <string name="title_search">search</string>
+    <string name="title_compare">compare</string>
+    <string name="title_about">about</string>
+
+    <string-array name="Liste">
+        <item>Social Media</item>
+        <item>Flashlight</item>
+        <item>Dating</item>
+    </string-array>
+</resources>
