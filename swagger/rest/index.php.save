@@ -1,0 +1,289 @@
+<?php
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
+
+require 'vendor/autoload.php';
+/*
+config für slim
+*/
+
+
+$config['displayErrorDetails'] = true;
+$config['addContentLengthHeader'] = false;
+
+$config['db']['host']   = "localhost";
+$config['db']['user']   = "getter";
+$config['db']['pass']   = "total_safety";
+$config['db']['dbname'] = "privacy_ranking";
+
+
+/*
+function to encode array to utf8
+*/
+
+function utf8_converter($array)
+{
+    array_walk_recursive($array, function(&$item, $key){
+        if(!mb_detect_encoding($item, 'utf-8', true)){
+                $item = utf8_encode($item);
+        }
+    });
+ 
+    return $array;
+}
+
+
+
+
+$app = new \Slim\App(["settings" => $config]);
+
+
+$container = $app->getContainer();
+
+$container['db'] = function ($c) {
+    $db = $c['settings']['db'];
+    $pdo = new PDO("mysql:host=" . $db['host'] . ";dbname=" . $db['dbname'].";charset=utf8",
+        $db['user'], $db['pass']);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    return $pdo;
+};
+
+
+$app->get('/cat', function ($response) {
+
+    try
+    {
+
+         $sth = $this->db->prepare("SELECT name, Cluster_id FROM Clusters WHERE Clustering_id=0");
+
+        $sth->execute();
+
+        $category = $sth->fetchAll(PDO::FETCH_OBJ);
+
+        if($category) {
+            return $this->response->withJson($category, 200);
+
+        } else {
+            throw new PDOException('No records found.');
+        }
+
+    } catch(PDOException $e) {
+          echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+});
+
+$app->get('/cat_helper', function ($response) {
+
+    try
+    {
+
+        $sth = $this->db->prepare("SELECT Cluster_id FROM Clusters WHERE Clustering_id=0");
+
+        $sth->execute();
+
+        $category = $sth->fetchAll(PDO::FETCH_OBJ);
+
+        if($category) {
+            return $this->response->withJson($category, 200);
+
+        } else {
+            throw new PDOException('No records found.');
+        }
+
+    } catch(PDOException $e) {
+          echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+});
+
+
+
+$app->get('/cat/[{id}]', function ($request, $response, $args) {
+
+    try
+    {
+
+        $sth = $this->db->prepare("SELECT title, App_id, similarity, icon, count(Permission_id) FROM (((Apps NATURAL JOIN App_in_cluster) NATURAL JOIN Clusters) NATURAL JOIN App_permissions) WHERE Clusters.Cluster_id=:id AND Clustering_id=0 GROUP BY Apps.App_id ORDER BY similarity DESC");
+
+	$sth->bindParam("id",$args['id']);
+
+        $sth->execute();
+
+        $category = $sth->fetchAll();
+
+        if($category) {
+
+            return $this->response->withJson($category, 200);
+
+        } else {
+            throw new PDOException('No records found.');
+        }
+
+    } catch(PDOException $e) {
+          echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+});
+
+
+
+$app->get('/app_helper', function ($response) {
+
+    try
+    {
+
+        $sth = $this->db->prepare("SELECT App_id FROM Apps");
+
+        $sth->execute();
+
+        $category = $sth->fetchAll(PDO::FETCH_OBJ);
+
+        if($category) {
+            return $this->response->withJson($category, 200);
+
+        } else {
+            throw new PDOException('No records found.');
+        }
+
+    } catch(PDOException $e) {
+          echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+});
+
+
+
+$app->get('/app/[{id}]', function ($request, $response, $args) {
+
+    try
+    {
+
+        $sth = $this->db->prepare("SELECT *,Count(Permission_id) FROM (Apps LEFT JOIN App_permissions ON Apps.App_id=App_permissions.App_id) WHERE Apps.App_id=:id");
+
+        $sth->bindParam("id",$args['id']);
+
+        $sth->execute();
+
+        $category = $sth->fetch();
+
+        if($category) {
+
+            return $this->response->withJson($category, 200);
+        } else {
+            throw new PDOException('No records found.');
+        }
+
+    } catch(PDOException $e) {
+          echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+});
+
+$app->get('/search/[{id}]', function ($request, $response, $args) {
+
+    try
+    {
+
+        $sth = $this->db->prepare("SELECT title, App_id FROM Apps WHERE title like CONCAT('%',:id,'%')");
+
+        $sth->bindParam("id",$args['id']);
+
+        $sth->execute();
+
+        $category = $sth->fetchAll();
+
+        if($category) {
+
+            return $this->response->withJson($category, 200);
+        } else {
+            throw new PDOException('No records found.');
+        }
+
+    } catch(PDOException $e) {
+          echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+});
+
+$app->get('/perm/[{id}]', function ($request, $response, $args) {
+
+    try
+    {
+
+        $sth = $this->db->prepare("SELECT name, Permission_id  FROM Apps NATURAL JOIN App_permissions NATURAL JOIN Permissions  WHERE App_id=:id");
+
+        $sth->bindParam("id",$args['id']);
+
+        $sth->execute();
+
+        $category = $sth->fetchAll();
+
+
+        if($category) {
+            return $this->response->withJson($category, 200);
+
+        } else {
+            throw new PDOException('"No Permissions needed."');
+        }
+
+    } catch(PDOException $e) {
+	  echo '[{"name":'. $e->getMessage() .'}]';
+    }
+});
+
+$app->get('/perm_count/[{id}]', function ($request, $response, $args) {
+
+    try
+    {
+
+        $sth = $this->db->prepare("SELECT Count(*)  FROM Apps NATURAL JOIN App_permissions  WHERE App_id=:id");
+
+        $sth->bindParam("id",$args['id']);
+
+        $sth->execute();
+
+        $category = $sth->fetchAll();
+
+        if($category) {
+            return $this->response->withJson($category, 200);
+
+        } else {
+            throw new PDOException('0');
+        }
+
+    } catch(PDOException $e) {
+          echo '[{"Count(*)":'. $e->getMessage() .'}]';
+    }
+
+});
+
+
+
+$app->get('/test', function ($request, $response, $args) {
+
+    try
+    {
+
+        $sth = $this->db->prepare("SELECT *,Count(Permission_id)Count(Permission_id) FROM (Apps LEFT JOIN App_permissions ON Apps.App_id=App_permissions.App_id) WHERE Apps.App_id=:id");
+
+        //$sth->bindParam("id",$args['id']);
+
+        $sth->execute();
+
+        $category = $sth->fetchAll();
+
+        if($category) {
+            return $this->response->withJson($category, 200);
+
+        } else {
+            throw new PDOException('0');
+        }
+
+    } catch(PDOException $e) {
+          echo '[{"Count(*)":'. $e->getMessage() .'}]';
+    }
+
+});
+
+
+
+$app->run();
+
+
+?>

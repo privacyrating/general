@@ -1,0 +1,127 @@
+swagger: "2.0"
+info:
+ version: "1.4.1"
+ title: "Privacy Ranking"
+ description: "This is a Swagger documentation of an Rest-Api to access Google Play Store Data. It is used in a student project. If you want to know more about the usage or the underlying database please go to our [Github Wiki Page](https://github.com/privacyrating/general/wiki)"
+ contact:
+   name: "Privacy Ranking"
+   email: "simonsenn95@gmail.com"
+   url: "https://github.com/privacyrating/general/wiki"
+ license:
+   name: "MIT"
+   url: "http://opensource.org/licenses/MIT"
+host: "privacyranking.cs.hs-rm.de"
+schemes:
+ - "http"
+consumes:
+ - "application/json"
+produces:
+ - "application/json;charset=utf-8"
+paths:
+ /cat:
+   get:
+     tags:
+       - "Category"
+     summary: "Returns all categories"
+     description: "Returns the name and Cluster_id of all categories"
+     operationId: "getcat"
+     produces:
+       - "application/json"
+     responses:	  
+       200:
+         description: "All Categories "
+
+       default:
+         description: "unexpected error"
+
+
+ /cat/{id}:
+   get:
+     tags:
+       - "Category"
+     summary: "Returns all apps in a category"
+     description: "Returns the name, app_id, similatity, icon, and the number of permissions of all apps inside a given category  "
+     operationId: "get_app_in_cat"
+     produces:
+       - "application/json"
+     parameters:
+       -
+         name: "id"
+         in: "path"
+         description: "ID of the category to return"
+         required: true
+         type: "string"
+
+     responses:
+       200:
+         description: "List of all apps in a category with useful stats to rank them"
+       default:
+         description: "unexpected error"
+ 
+ /app/{id}:
+   get:
+     tags:
+       - "Application Information"
+     summary: "Find app by ID"
+     description: "Returns all Information about one Application"
+     operationId: "get_App_By_Id"
+     produces:
+       - "application/json"
+     parameters:
+       -
+         name: "id"
+         in: "path"
+         description: "ID of the app to return"
+         required: true
+         type: "string"
+     responses:
+       200:
+         description: "All information that is stored about given app"
+       default:
+         description: "unexpected error"
+
+ /search/{id}:
+   get:
+     tags:
+       - "Search"
+     summary: "Returns all apps matching your search"
+     description: "Returns title, App_id, icon and number of permissions of all apps matching the search term "
+     operationId: "get_App_By_Name"
+     produces:
+       - "application/json"
+     parameters:
+       -
+         name: "id"
+         in: "path"
+         description: "Substring the names off all apps are searched for"
+         required: true
+         type: "string"
+     responses:
+       200:
+         description: "List of apps matching the search"
+       default:
+         description: "unexpected error"
+
+ /perm/{id}:
+   get:
+     tags:
+       - "Application Information"
+     summary: "Returns all permissions of an app"
+     description: "Gives back the App's Permissions when given the app_id"
+     operationId: "get_perm_by_id"
+     produces:
+       - "application/json"
+     parameters:
+       -
+         name: "id"
+         in: "path"
+         description: "ID of the app whitch Permissions are to return "
+         required: true
+         type: "string"
+     responses:
+       200:
+         description: "List of all permissions that given app requires"
+       default:
+         description: "unexpected error"
+
+
