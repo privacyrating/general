@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+   Ein relatives Layout wird zur Positionierung der einzelnen Elemente verwendet.
+
+   Verwendete Elemente:
+
+        - BottomNavigationView ( <android.support.design.widget.BottomNavigationView> )
+        - TextView ( <TextView> )
+
+-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/linearContainer"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/navigation"/>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context="com.example.george.privacyrankingapp.Categorie3">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            android:text="Hochschule RheinMain" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            android:text="Privacy Ranking" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            android:text="Unter den Eichen 5" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            android:text="65195 Wiesbaden" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            android:text=" " />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            android:text="Link mit allen Informationen zur App:" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:autoLink="web"
+            android:text="https://github.com/privacyrating/general/wiki" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            android:text=" " />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            android:text="Icons zur Verfügung gestellt von:" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:autoLink="web"
+            android:text="https://de.icons8.com/icon/16571/Privacy" />
+    </LinearLayout>
+</RelativeLayout>

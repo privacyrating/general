@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+   Ein relatives Layout wird zur Positionierung der einzelnen Elemente verwendet.
+
+   Verwendete Elemente:
+
+        - BottomNavigationView ( <android.support.design.widget.BottomNavigationView> )
+        - ScrollView ( <ScrollView> )
+        - TableLayout ( <TableLayout> )
+        - TableRow ( <TableRow> )
+        - TextView ( <TextView> )
+
+-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/navigation" />
+
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_above="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignRight="@+id/navigation"
+        android:layout_alignEnd="@+id/navigation"
+        >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:stretchColumns="1,2">
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="#000000">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text=" Name "
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold"
+                    android:clickable="false"
+                    android:linksClickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"/>
+
+                <TextView
+                    android:id="@+id/compTitleApp1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:maxWidth="5dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text="APP1"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold"
+                    android:clickable="false"
+                    android:linksClickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"/>
+
+                <TextView
+                    android:id="@+id/compTitleApp2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:layout_margin="1dp"
+                    android:maxWidth="5dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text="APP2"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold"
+                    android:clickable="false"
+                    android:linksClickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="#000000">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text=" Permissions "
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:clickable="false"
+                    android:linksClickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"/>
+
+                <TextView
+                    android:id="@+id/compPermApp1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:maxWidth="5dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:clickable="false"
+                    android:linksClickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"/>
+
+                <TextView
+                    android:id="@+id/compPermApp2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:layout_margin="1dp"
+                    android:maxWidth="5dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:clickable="false"
+                    android:linksClickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"/>
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="#000000">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text="PlayStore Rating"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:clickable="false"
+                    android:linksClickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"/>
+
+                <RatingBar
+                    android:id="@+id/compRatApp1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:maxWidth="5dp"
+                    android:background="#FFFFFF"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:numStars="5"
+                    android:stepSize="0.1"
+                    android:rating="0.0"
+                    style="?android:attr/ratingBarStyleSmall"/>
+
+                <RatingBar
+                    android:id="@+id/compRatApp2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:maxWidth="5dp"
+                    android:background="#FFFFFF"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:numStars="5"
+                    android:stepSize="0.5"
+                    android:rating="0.0"
+                    style="?android:attr/ratingBarStyleSmall"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="#000000">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text="Privacy Rating"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:clickable="false"
+                    android:linksClickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"/>
+
+                <TextView
+                    android:id="@+id/compPrivRatApp1"
+                    android:background="@drawable/shape"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"/>
+
+                <TextView
+                    android:id="@+id/compPrivRatApp2"
+                    android:background="@drawable/shape"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:layout_margin="1dp"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="#000000">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text=" min_dow "
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:clickable="false"
+                    android:linksClickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"/>
+
+                <TextView
+                    android:id="@+id/compMinDowApp1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:maxWidth="5dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text=" 2"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:clickable="false"
+                    android:linksClickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"/>
+
+                <TextView
+                    android:id="@+id/compMinDowApp2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:layout_margin="1dp"
+                    android:maxWidth="5dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text=" 3"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:clickable="false"
+                    android:linksClickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="#000000">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text=" cost "
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:clickable="false"
+                    android:linksClickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"/>
+
+                <TextView
+                    android:id="@+id/compCostApp1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:maxWidth="5dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text=" 2"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:clickable="false"
+                    android:linksClickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"/>
+
+                <TextView
+                    android:id="@+id/compCostApp2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:layout_margin="1dp"
+                    android:maxWidth="5dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text=" 4 "
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:clickable="false"
+                    android:linksClickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_above="@+id/tablrow"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:onClick="rowClick">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text="LINK"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:clickable="false"
+                    android:linksClickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"/>
+
+                <TextView
+                    android:id="@+id/compLinkApp1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:maxWidth="5dp"
+                    android:autoLink="web"
+                    android:text="http://privacyranking.cs.hs-rm.de/"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/compLinkApp2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:maxWidth="5dp"
+                    android:autoLink="web"
+                    android:text="http://privacyranking.cs.hs-rm.de/"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+            </TableRow>
+
+
+        </TableLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
